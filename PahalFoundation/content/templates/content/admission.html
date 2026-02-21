@@ -1,0 +1,125 @@
+{% extends 'content/dashboard.html' %}
+{% block body %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'content/css/admission-styles.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+<div class="admission-page-wrapper">
+    <div class="admission-header">
+        <h1><i class="fas fa-file-signature"></i> Student Admission</h1>
+        <p>Enroll a new scholar into the Pahal Foundation academic database.</p>
+    </div>
+
+    <div class="admission-form-card">
+        {% if messages %}
+        <div class="form-alerts">
+            {% for message in messages %}
+            <div class="alert-pill">
+                <i class="fas fa-info-circle"></i> {{message}}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <form enctype="multipart/form-data" method="post" id="student_form" class="premium-form">
+            {% csrf_token %}
+            
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="id_roll_no"><i class="fas fa-hashtag"></i> REGISTRATION NUMBER</label>
+                    <input type="number" name="roll_no" id="id_roll_no" placeholder="e.g. 2024001" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="id_name"><i class="fas fa-user"></i> STUDENT NAME</label>
+                    <input type="text" name="name" maxlength="40" id="id_name" placeholder="Full legal name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="id_parents_name"><i class="fas fa-user-friends"></i> PARENT'S NAME</label>
+                    <input type="text" name="parents_name" maxlength="40" id="id_parents_name" placeholder="Father/Mother name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="id_phone_no"><i class="fas fa-phone-alt"></i> CONTACT NUMBER</label>
+                    <input type="text" name="phone_no" maxlength="12" id="id_phone_no" pattern="[0-9]{10}" placeholder="10-digit mobile" required>
+                </div>
+
+                <div class="form-row-triple">
+                    <div class="form-group">
+                        <label for="id_age">AGE</label>
+                        <input type="number" name="age" id="id_age" placeholder="Age" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="id_gender">GENDER</label>
+                        <select name="gender" id="id_gender" required>
+                            <option value="">--Select--</option>
+                            <option value="Female">Female</option>
+                            <option value="Male">Male</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="admission_date">ADMISSION DATE</label>
+                        <input type="date" id="admission_date" name="date" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="id_grade"><i class="fas fa-graduation-cap"></i> CLASS/GRADE</label>
+                    <input type="text" name="grade" maxlength="10" id="id_grade" placeholder="e.g. 5th Grade">
+                </div>
+
+                <div class="form-group">
+                    <label for="id_prev_school"><i class="fas fa-school"></i> PREVIOUS SCHOOL</label>
+                    <input type="text" name="prev_school" maxlength="30" id="id_prev_school" placeholder="Last school attended">
+                </div>
+
+                <div class="form-group full-width photo-upload-group">
+                    <label><i class="fas fa-camera"></i> UPLOAD STUDENT PHOTO</label>
+                    
+                    <div class="upload-dropzone" id="image-dropzone">
+                        <input type="file" name="photo" accept="image/*" id="id_photo" class="hidden-file-input" required>
+                        
+                        <div class="upload-placeholder" id="upload-placeholder">
+                            <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                            <h4>Click or Drag & Drop Photo Here</h4>
+                            <p>Accepted formats: JPG, PNG, GIF (Max 5MB)</p>
+                        </div>
+
+                        <div class="upload-preview hidden" id="upload-preview">
+                            <img src="" alt="Preview" id="preview-image">
+                            <div class="preview-info">
+                                <span id="file-name" class="file-name-badge"><i class="fas fa-image"></i> photo.png</span>
+                                <h4 class="success-text">Photo Ready</h4>
+                                <div class="preview-actions">
+                                    <button type="button" class="btn-change" id="btn-change-photo">
+                                        <i class="fas fa-sync-alt"></i> Change
+                                    </button>
+                                    <button type="button" class="btn-remove" id="btn-remove-photo">
+                                        <i class="fas fa-trash-alt"></i> Remove
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="id_address"><i class="fas fa-map-marker-alt"></i> RESIDENTIAL ADDRESS</label>
+                    <textarea name="address" maxlength="40" id="id_address" placeholder="Current residential address..."></textarea>
+                </div>
+            </div>
+
+            <button class="premium-submit-btn" type="submit">
+                Submit Admission Form <i class="fas fa-paper-plane"></i>
+            </button>
+        </form>
+    </div>
+</div>
+
+<script src="{% static 'content/js/dashboard.js' %}"></script>
+
+
+{% endblock body %}

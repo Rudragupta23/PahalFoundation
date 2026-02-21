@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    {% load group_tags %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'content/css/dashboard-styles.css' %}">
+    <link rel="stylesheet" href="{% static 'content/css/dashboard-res.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="icon" type="image/icon" href="{% static 'pahal/icon/favicon.ico' %}">
+    <title>Admin Panel</title>
+</head>
+<body>
+<button id="toggle-menu" class="toggle-menu"><i class="fa fa-bars"></i></button>
+<div class="dashboard">
+    <div class="side-menu" id="side-menu">
+<div class="brand-name">
+  <a href="/" style="display: flex; flex-direction: column; align-items: center; color: white; text-decoration: none; gap: 15px;">
+    <img src="{% static 'pahal/icon/favicon.ico' %}" alt="Pahal Logo" style="width: 65px; height: auto; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);" />
+    <span style="text-align: center; line-height: 1.2;">Pahal Foundation VITB</span>
+  </a>
+</div>
+        <div class="menu-item" onclick="toggleVisibility('dashboardMenu')">
+            <span><i class="fa fa-home"></i> Dashboard</span>
+            <i class="fa fa-angle-down"></i>
+        </div>
+        <div id="dashboardMenu" class="submenu">
+            <a href="/dashboard/profile">Overview</a>
+            <a href="/dashboard/timetable">Time Table</a>
+        </div>
+
+
+{% if user|has_group:"admin" or user|has_group:"teacher" %}
+        <div class="menu-item" onclick="toggleVisibility('studentsMenu')">
+            <span><i class="fa fa-user-graduate"></i> Students</span>
+            <i class="fa fa-angle-down"></i>
+        </div>
+        <div id="studentsMenu" class="submenu">
+            <a href="/dashboard/student-info">Students Info</a>
+            <a href="/dashboard/attendance">Attendance</a>
+            <a href="/dashboard/admission">Admissions</a>
+        </div>
+        {% endif %}
+
+{% if user|has_group:"admin" %}
+        <div class="menu-item" onclick="toggleVisibility('volunteersMenu')">
+            <span><i class="fa fa-hands-helping"></i> Volunteers</span>
+            <i class="fa fa-angle-down"></i>
+        </div>
+        <div id="volunteersMenu" class="submenu">
+            <a href="/dashboard/volunteer-info">Volunteer Info</a>
+            <a href="/dashboard/volunteer-enrolment">Enrollments</a>
+        </div>
+        {% endif %}
+
+        <div class="menu-item" onclick="toggleVisibility('contentMenu')">
+            <span><i class="fa fa-pen"></i> Content </span>
+            <i class="fa fa-angle-down"></i>
+        </div>
+        <div id="contentMenu" class="submenu">
+            <a href="/blogs">Blogs</a>
+            <a href="/your_blogs">Your Blogs</a>
+            <a href="/dashboard/create_blog">Write Blogs</a>
+        </div>
+
+{% if user|has_group:"admin" or user|has_group:"teacher" %}
+        <div class="menu-item" onclick="toggleVisibility('reportsMenu')">
+            <span><i class="fa fa-chart-bar"></i> Reports</span>
+            <i class="fa fa-angle-down"></i>
+        </div>
+        <div id="reportsMenu" class="submenu">
+            <a href="/dashboard/attendance-analysis">Attendance Analysis</a>
+        </div>
+        {% endif %}
+
+        <div class="menu-item" onclick="toggleVisibility('settingsMenu')">
+            <span><i class="fa fa-cogs"></i> Settings</span>
+            <i class="fa fa-angle-down"></i>
+        </div>
+        <div id="settingsMenu" class="submenu">
+            <a href="/change_password">Change Password</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+
+    <div class="dashboard-right">
+        <div class="container">
+            <div class="header">
+                <div class="welcome-user">
+                    <h2>Welcome, <span>{{ user.username|capfirst }}!</span></h2>
+                </div>
+                <div class="search">
+  <input type="text" id="page-search-input" placeholder="Search data..." />
+  <button class="btn" id="page-search-btn"><i class="fa fa-search"></i></button>
+</div>
+            </div>
+        </div>
+        <div class="dashboard-container container">
+            {% block body %}{% endblock body %}
+        </div>
+    </div>
+</div>
+<script src="{% static 'content/js/dashboard.js' %}"></script>
+
+</body>
+</html>

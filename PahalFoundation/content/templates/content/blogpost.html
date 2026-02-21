@@ -1,0 +1,108 @@
+{% extends 'content/base.html' %}
+{% block body %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'content/css/blogpost-styles.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<div class="blogpost-wrapper">
+
+    <div class="blogpost-hero">
+        <div class="floating-shape shape1"></div>
+        <div class="floating-shape shape2"></div>
+
+        <div class="hero-overlay">
+            <span class="hero-badge">PAHAL FOUNDATION FORUM</span>
+            <h1 class="forum-heading">{{post.title}}</h1>
+        </div>
+    </div>
+
+    <div class="blogpost-container">
+
+        <article class="blogpost-card">
+
+            <div class="post-meta">
+                <div class="meta-left">
+                    <span class="meta-pill"><i class="fas fa-user-circle"></i> {{post.owner}}</span>
+                    <span class="meta-pill"><i class="fas fa-calendar-alt"></i> {{post.time.date}}</span>
+                </div>
+
+                <div class="meta-right">
+                    <span class="meta-badge views-badge">
+                        <span class="badge-icon">👁</span>
+                        <span class="badge-number">{{ post.views }}</span>
+                    </span>
+                    <span class="meta-badge likes-badge">
+                        <span class="badge-icon">❤️</span>
+                        <span class="badge-number">{{ post.likes }}</span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="post-content">
+                {{post.content|safe}}
+            </div>
+
+            <div class="post-actions">
+                {% if request.user.is_authenticated %}
+                <form method="POST" action="{% url 'like_post' post.slug %}">
+                    {% csrf_token %}
+                    <button type="submit" class="like-button">
+                        <i class="fas fa-heart"></i> Support this Story
+                    </button>
+                </form>
+                {% else %}
+                <div class="login-prompt-pill">
+                    <i class="fas fa-lock"></i> Login to support this story
+                </div>
+                {% endif %}
+
+                <a href="/blogs">
+                    <button class="secondary-btn">← Back to Forum</button>
+                </a>
+            </div>
+        </article>
+
+        <section class="comment-section">
+            <h2 class="comment-heading"><i class="fas fa-comments"></i> Community Reflections</h2>
+
+            {% if request.user.is_authenticated %}
+            <form method="post" class="comment-form">
+                {% csrf_token %}
+                <div class="textarea-container">
+                    <textarea name="new_comment" placeholder="Share your words of encouragement or reflections..." required></textarea>
+                </div>
+                <button type="submit" class="comment-btn">Post Reflection</button>
+            </form>
+            {% else %}
+            <div class="login-warning-box">
+                <p>Join the conversation! Please <a href="/login">Login</a> to share your thoughts.</p>
+            </div>
+            {% endif %}
+
+            <div class="comment-list">
+                {% if not post.blogComment.all %}
+                    <div class="no-comments-state">
+                        <div class="empty-icon">🌟</div>
+                        <p>Be the first to share a reflection on this story!</p>
+                    </div>
+                {% else %}
+                    {% for comment in post.blogComment.all %}
+                    <div class="comment-bubble">
+                        <div class="comment-header">
+                            <span class="comment-user"><i class="fas fa-user-tag"></i> {{ comment.name }}</span>
+                            <span class="comment-date">{{ comment.date|date:"d M Y" }}</span>
+                        </div>
+                        <div class="comment-body">
+                            {{ comment.body }}
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </section>
+
+    </div>
+</div>
+
+{% endblock body %}

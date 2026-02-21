@@ -1,0 +1,104 @@
+{% extends 'content/dashboard.html' %}
+{% block body %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'content/css/analysis-styles.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+<div class="analysis-wrapper">
+    <div class="analysis-header no-print">
+        <div class="header-text">
+            <h1 class="page-main-title"><i class="fas fa-chart-line"></i> Attendance Analysis</h1>
+            <p class="page-subtitle">Review historical attendance logs and export official reports.</p>
+        </div>
+        
+        <div class="analysis-actions">
+            <form method="GET" class="filter-form">
+                <div class="date-input-group">
+                    <label for="filter_date">View Date:</label>
+                    <input type="date" id="filter_date" name="date" value="{{ selected_date }}" onchange="this.form.submit()" class="premium-date-input">
+                </div>
+            </form>
+            
+            <div class="export-group">
+                <button class="download-btn-premium excel-bg" onclick="exportToExcel()">
+                    Excel <i class="fas fa-file-excel"></i>
+                </button>
+                <button class="download-btn-premium" onclick="window.print()">
+                    PDF <i class="fas fa-file-pdf"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="print-header">
+        <h1>PAHAL FOUNDATION - ATTENDANCE REPORT</h1>
+        <p><strong>Session Date:</strong> {{ selected_date }}</p>
+        <p><strong>Generated on:</strong> {% now "DATETIME_FORMAT" %}</p>
+    </div>
+
+    <div class="analysis-stats">
+        <div class="stat-pill present">
+            <span class="label">Total Present</span>
+            <span class="value">{{ present_count }}</span>
+        </div>
+        <div class="stat-pill absent">
+            <span class="label">Total Absent</span>
+            <span class="value">{{ absent_count }}</span>
+        </div>
+        <div class="stat-pill ratio">
+            <span class="label">Attendance Rate</span>
+            <span class="value">{{ attendance_rate }}%</span>
+        </div>
+    </div>
+
+    <div class="table-card">
+        <table class="premium-table" id="attendance-table">
+            <thead>
+                <tr>
+                    <th>Roll No.</th>
+                    <th>Scholar Name</th>
+                    <th class="text-center">Recorded Status</th>
+                    <th class="text-right">Action Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for record in attendance_records %}
+                <tr>
+                    <td class="font-bold">#{{ record.student.roll_no }}</td>
+                    <td>
+                        <div class="student-name-box">
+                            {{ record.student.name }}
+                        </div>
+                    </td>
+                    <td class="text-center">
+                        <span class="status-badge {{ record.status|lower }}">
+                            <i class="fas {% if record.status == 'present' %}fa-check-circle{% else %}fa-times-circle{% endif %}"></i>
+                            {{ record.status|capfirst }}
+                        </span>
+                    </td>
+                    <td class="text-right text-muted">{{ record.date }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="4" class="empty-state">
+                        <i class="fas fa-calendar-times"></i>
+                        <p>No attendance records found for this date.</p>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    // Logic for Excel Download
+    function exportToExcel() {
+        const table = document.getElementById("attendance-table");
+        const wb = XLSX.utils.table_to_book(table, { sheet: "Attendance_{{ selected_date }}" });
+        XLSX.writeFile(wb, "Attendance_Report_{{ selected_date }}.xlsx");
+    }
+</script>
+{% endblock body %}

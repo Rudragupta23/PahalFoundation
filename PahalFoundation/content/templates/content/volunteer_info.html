@@ -1,0 +1,56 @@
+{% extends 'content/dashboard.html' %}
+{% block body %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'content/css/volunteer-styles.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+<div class="volunteer-page-wrapper">
+    <div class="volunteer-header">
+        <div class="header-text">
+            <h1 class="page-main-title">
+                <i class="fas fa-hands-helping"></i> Volunteer Registry
+            </h1>
+            <p class="page-subtitle">Full access to Pahal Foundation volunteer records and contact details.</p>
+        </div>
+    </div>
+
+    <div class="volunteers-grid">
+        {% for st in volunteer %}
+        <div class="volunteer-card">
+            <div class="volunteer-photo-wrapper">
+                <img src="{{MEDIA_URL}}{{st.photo.url}}" alt="Photo of {{st.name}}" class="volunteer-photo">
+                <div class="photo-overlay"></div>
+                <div class="reg-badge">#{{st.Reg_no}}</div>
+            </div>
+            
+            <div class="volunteer-details">
+                <h3 class="volunteer-name">{{st.name}}</h3>
+                <span class="designation-pill">{{st.designation}}</span>
+                
+                <div class="info-stack">
+                    <div class="info-row">
+                        <span class="label"><i class="fas fa-id-badge"></i> Roll No</span>
+                        <span class="value">{{st.Reg_no}}</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label"><i class="fas fa-envelope"></i> Email</span>
+                        <span class="value">{{st.email}}</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label"><i class="fas fa-phone-alt"></i> Phone</span>
+                        <span class="value">{{st.phone_no}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="empty-state">
+            <i class="fas fa-users-slash"></i>
+            <p>No volunteer records found.</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock body %}

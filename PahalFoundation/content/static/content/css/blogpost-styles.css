@@ -1,0 +1,269 @@
+/* ========================================= */
+/* PREMIUM BLOGPOST DESIGN - PAHAL FOUNDATION */
+/* ========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
+
+:root {
+    --primary-teal: #085a66;
+    --pahal-orange: #f47c20;
+    --text-main: #2d3436;
+    --glass-white: rgba(255, 255, 255, 0.95);
+    --transition-smooth: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.blogpost-wrapper {
+    font-family: 'Poppins', sans-serif;
+    background: #f1f5f9;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* --- HERO SECTION --- */
+.blogpost-hero {
+    height: 400px;
+    background: linear-gradient(135deg, var(--primary-teal), #0a7a8a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 60px;
+}
+
+.hero-badge {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.forum-heading {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: white;
+    text-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    max-width: 900px;
+    line-height: 1.2;
+}
+
+/* --- FLOATING DECORATION --- */
+.floating-shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.3;
+    animation: floatShape 12s infinite ease-in-out;
+}
+
+.shape1 { width: 300px; height: 300px; background: var(--pahal-orange); top: -50px; left: 5%; }
+.shape2 { width: 350px; height: 350px; background: #ffffff; bottom: -80px; right: 10%; animation-delay: 2s; }
+
+@keyframes floatShape {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(40px) scale(1.1); }
+}
+
+/* --- MAIN CONTAINER --- */
+.blogpost-container {
+    max-width: 1000px;
+    width: 90%;
+    margin: -100px auto 100px auto;
+    position: relative;
+    z-index: 5;
+}
+
+.blogpost-card {
+    background: var(--glass-white);
+    backdrop-filter: blur(20px);
+    padding: 60px;
+    border-radius: 40px;
+    box-shadow: 0 30px 70px rgba(0,0,0,0.08);
+    border: 1px solid rgba(255,255,255,0.5);
+    transition: var(--transition-smooth);
+}
+
+/* --- META STRIP --- */
+.post-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #eee;
+}
+
+.meta-pill {
+    margin-right: 20px;
+    color: #636e72;
+    font-weight: 500;
+}
+
+.meta-pill i { color: var(--primary-teal); margin-right: 5px; }
+
+.meta-badge {
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.views-badge { background: linear-gradient(135deg, var(--pahal-orange), #ff9f43); color: white; }
+.likes-badge { background: linear-gradient(135deg, #ff4d6d, #ff758f); color: white; margin-left: 10px; }
+
+/* --- CONTENT STYLE --- */
+.post-content {
+    font-size: 1.25rem;
+    line-height: 2;
+    color: var(--text-main);
+    text-align: justify;
+    margin-bottom: 60px;
+}
+
+/* --- ACTIONS --- */
+.post-actions {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.like-button {
+    background: linear-gradient(135deg, var(--pahal-orange), #ff8c3a);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(244, 124, 32, 0.3);
+    transition: 0.3s;
+}
+
+.like-button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(244, 124, 32, 0.4);
+}
+
+.secondary-btn {
+    background: white;
+    border: 2px solid var(--primary-teal);
+    padding: 13px 40px;
+    border-radius: 50px;
+    color: var(--primary-teal);
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.secondary-btn:hover { background: var(--primary-teal); color: white; }
+
+/* --- COMMENTS --- */
+.comment-section {
+    margin-top: 50px;
+    background: white;
+    padding: 60px;
+    border-radius: 40px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+}
+
+.comment-heading {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--primary-teal);
+    margin-bottom: 40px;
+}
+
+.comment-form textarea {
+    width: 100%;
+    min-height: 150px;
+    border-radius: 20px;
+    padding: 25px;
+    border: 2px solid #f1f1f1;
+    background: #f9f9f9;
+    font-family: inherit;
+    font-size: 1.1rem;
+    transition: 0.3s;
+}
+
+.comment-form textarea:focus {
+    outline: none;
+    border-color: var(--pahal-orange);
+    background: white;
+}
+
+.comment-btn {
+    margin-top: 20px;
+    background: var(--primary-teal);
+    color: white;
+    padding: 15px 45px;
+    border-radius: 50px;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* --- COMMENT BUBBLES --- */
+.comment-bubble {
+    background: #f8fafc;
+    padding: 30px;
+    border-radius: 0 30px 30px 30px;
+    margin-top: 30px;
+    border-left: 5px solid var(--pahal-orange);
+    transition: 0.3s;
+}
+
+.comment-bubble:hover { transform: translateX(10px); background: #ffffff; box-shadow: 0 10px 20px rgba(0,0,0,0.02); }
+
+.comment-header { display: flex; justify-content: space-between; margin-bottom: 15px; font-weight: 700; }
+.comment-user { color: var(--primary-teal); }
+.comment-date { color: #94a3b8; font-size: 0.9rem; }
+.comment-body { color: #475569; line-height: 1.7; }
+/* --- BASE BUTTON STYLES --- */
+.pag-btn, .comment-btn, .like-button, .read-more-btn {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+
+/* --- THE "POST REFLECTION" & "NEXT" BUTTON HOVER --- */
+/* This targets the dark teal buttons from your images */
+.comment-btn:hover, .pag-btn:hover:not(.disabled) {
+    background-color: #0a7a8a; /* Slightly lighter teal */
+    transform: translateY(-3px) scale(1.05); /* Lifts and grows the button */
+    box-shadow: 0 10px 20px rgba(8, 90, 102, 0.3); /* Adds a soft glow */
+}
+
+/* --- THE "READ FULL STORY" & "LIKE" BUTTON HOVER --- */
+/* This targets the orange buttons in your forum grid */
+.read-more-btn:hover, .like-button:hover {
+    background: linear-gradient(135deg, #ff9f43, #f47c20); /* Reverse gradient feel */
+    transform: scale(1.08); /* Makes it pop more */
+    box-shadow: 0 8px 15px rgba(244, 124, 32, 0.4);
+}
+
+/* --- THE PREVIOUS BUTTON (DISABLED STATE) --- */
+/* Ensures the disabled button doesn't move when hovered */
+.pag-btn.disabled:hover {
+    transform: none;
+    cursor: not-allowed;
+}
+
+/* --- ACTIVE CLICK EFFECT --- */
+/* Makes the button feel like it's being pressed down */
+.comment-btn:active, .pag-btn:active, .like-button:active {
+    transform: translateY(1px) scale(0.98);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+/* --- MOBILE TWEAKS --- */
+@media (max-width: 768px) {
+    .blogpost-card, .comment-section { padding: 35px; }
+    .forum-heading { font-size: 2.2rem; }
+    .post-meta { flex-direction: column; align-items: flex-start; gap: 20px; }
+}

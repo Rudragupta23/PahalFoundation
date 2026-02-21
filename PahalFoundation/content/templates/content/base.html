@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'content/css/base-styles.css' %}">
+    <link rel="stylesheet" href="{% static 'pahal/css/responsive-styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/icon" href="{% static 'pahal/icon/favicon.ico' %}">
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+<body>
+{{request.first_name}}
+<nav class="nav-bar h-nav-resp">
+        <div class="logo pizza r-pizza-resp">
+            <img src="{% static 'pahal/img/logo.jpeg' %}" alt="Pahal Foundation Logo">
+            <a class="name-res" href="/">Pahal Foundation VITB</a>
+        </div>
+
+        <ul class="nav-links nav-links-res">
+            <li><a href="/" class="{% if request.path == '/' %}active{% endif %}">Home</a></li>
+            <li><a href="/about/" class="{% if '/about' in request.path %}active{% endif %}">About Us</a></li>
+            <li><a href="/blogs/" class="{% if '/blogs' in request.path %}active{% endif %}">Forum</a></li>
+            <li><a href="/volunteer/" class="{% if '/volunteer' in request.path %}active{% endif %}">Volunteer</a></li>
+            <li><a href="/contact/" class="{% if '/contact' in request.path %}active{% endif %}">Contact Us</a></li>
+
+            {% if request.user.is_authenticated %}
+                <li><a href="/dashboard/profile/" class="{% if '/dashboard' in request.path %}active{% endif %}">Dashboard</a></li>
+                <li><a href="/logout/">Logout</a></li>
+            {% else %}
+                <li><a href="/login/" class="{% if '/login' in request.path %}active{% endif %}">Login</a></li>
+            {% endif %}
+
+            <li>
+                <a href="/donate/" class="donate-btn {% if request.path == '/donate' %}active{% endif %}">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    Donate
+                </a>
+            </li>
+        </ul>
+    </nav>
+        {% block body %}{% endblock body %}
+<footer class="main-footer">
+        <div class="footer-wrapper container">
+
+            <div class="footer-col">
+                <h2 class="footer-logo">Pahal Foundation VITB</h2>
+                <p class="footer-desc">
+                    Creating equal opportunities through education, compassion,
+                    and meaningful community engagement.
+                </p>
+
+                <div class="footer-social">
+                    <a href="mailto:pahalkids@gmail.com"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.instagram.com/pahalfoundation_vitb/"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Explore</h3>
+                <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/blogs">Forum</a></li>
+                    <li><a href="/volunteer">Volunteer</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                    <li><a href="/donate">Donate</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Reach Us</h3>
+                <p>
+                    <i class="fas fa-map-marker-alt"></i>
+                    <a href="https://www.google.com/maps/place/VIT+Bhopal+University/" target="_blank" class="footer-link">
+                        VIT Bhopal University, India
+                    </a>
+                </p>
+                <p>
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:pahalkids@gmail.com" class="footer-link">pahalkids@gmail.com</a>
+                </p>
+                <p>
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:+919896800458" class="footer-link">+91 98968 00458</a>
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Our Vision</h3>
+                <p>
+                    We believe every child deserves access to education.
+                    Together, we nurture dreams and build brighter futures.
+                </p>
+                <a href="/volunteer" class="footer-btn">Join Us</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Pahal Foundation. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+        
+    <script src="{% static 'content/js/main.js' %}"></script>
+</body>
+</html>         

@@ -1,0 +1,115 @@
+{% extends 'content/base.html' %}
+{% block body %}
+{% load static %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet" href="{% static 'content/css/blog-styles.css' %}">
+
+<div class="blog-page-wrapper">
+    <header class="forum-hero">
+        <div class="hero-content">
+            <h1 class="premium-title">Pahal Foundation Community Forum</h1>
+            <p class="premium-subtitle">
+                Stories of change, voices of hope, and updates from the ground. 
+                Discover how we are bridging gaps at VIT Bhopal.
+            </p>
+            <div class="hero-divider"></div>
+        </div>
+    </header>
+
+    <section class="blog-main-layout">
+        <div class="blog-feed">
+            <div class="feed-header">
+                <h2 class="section-title"><i class="fas fa-rss"></i> Latest Stories</h2>
+            </div>
+
+            <div class="blog-grid">
+                {% for bg in blogs %}
+                <div class="blog-card-premium">
+                    <div class="card-inner">
+                        <div class="post-number">#{{ start_index|add:forloop.counter }}</div>
+                        
+                        <h3 class="post-title">
+                            <a href="/blogpost/{{bg.slug}}">{{ bg.title }}</a>
+                        </h3>
+
+                        <div class="post-meta-strip">
+                            <span class="meta-item"><i class="fas fa-user-edit"></i> {{bg.owner}}</span>
+                            <span class="meta-item"><i class="fas fa-calendar-alt"></i> {{bg.time.date}}</span>
+                        </div>
+
+                        <div class="post-excerpt">
+                            {{bg.content|safe|truncatewords:35}}
+                        </div>
+
+                        <div class="card-footer">
+                            <a href="/blogpost/{{bg.slug}}" class="read-more-btn">
+                                Read Full Story <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="modern-pagination">
+                {% if prev %}
+                <a href="/blogs?page={{prev}}" class="pag-btn">
+                    <i class="fas fa-chevron-left"></i> Previous
+                </a>
+                {% else %}
+                <span class="pag-btn disabled"><i class="fas fa-chevron-left"></i> Previous</span>
+                {% endif %}
+
+                <span class="page-indicator">Page {{ blogs.number }}</span>
+
+                {% if nxt %}
+                <a href="/blogs?page={{nxt}}" class="pag-btn">
+                    Next <i class="fas fa-chevron-right"></i>
+                </a>
+                {% else %}
+                <span class="pag-btn disabled">Next <i class="fas fa-chevron-right"></i></span>
+                {% endif %}
+            </div>
+        </div>
+
+        <aside class="sidebar-impact">
+            <div class="sidebar-sticky">
+                <h2 class="sidebar-title">Pahal At A Glance</h2>
+
+                <div class="impact-card-fancy">
+                    <div class="impact-icon-box"><i class="fas fa-university"></i></div>
+                    <div class="impact-info">
+                        <h3>The VITB Connection</h3>
+                        <p>Empowering children of workers at VIT Bhopal, bridging the university-local gap.</p>
+                        <span class="badge-stat">100+ Children</span>
+                    </div>
+                </div>
+
+                <div class="impact-card-fancy">
+                    <div class="impact-icon-box"><i class="fas fa-users-cog"></i></div>
+                    <div class="impact-info">
+                        <h3>Student-Led Power</h3>
+                        <p>Our entire impact platform is managed 100% by passionate student volunteers.</p>
+                        <span class="badge-stat">100% Student Managed</span>
+                    </div>
+                </div>
+
+                <div class="impact-card-fancy">
+                    <div class="impact-icon-box"><i class="fas fa-route"></i></div>
+                    <div class="impact-info">
+                        <h3>Our Growing Journey</h3>
+                        <p>Reaching 50+ communities since Dec 2021 with successful annual carnivals.</p>
+                        <span class="badge-stat">50+ Communities</span>
+                    </div>
+                </div>
+
+                <div class="impact-quote">
+                    <i class="fas fa-quote-left quote-icon"></i>
+                    <p>Taking the First Step Towards a Brighter Future.</p>
+                </div>
+            </div>
+        </aside>
+    </section>
+</div>
+{% endblock body %}

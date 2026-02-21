@@ -1,0 +1,71 @@
+{% extends 'content/dashboard.html' %} {% block body %} {% load static %}
+<link rel="stylesheet" href="{% static 'content/css/student-styles.css' %}" />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+/>
+
+<div class="registry-container">
+  <div class="registry-header">
+    <h1><i class="fas fa-user-graduate"></i> Student Info</h1>
+    <p>Comprehensive records of scholars enrolled at Pahal Foundation.</p>
+  </div>
+
+  <div class="students-grid">
+    {% for st in students %}
+    <div class="student-card-premium">
+      <div class="card-image-wrapper">
+        <img src="{{st.photo.url}}" alt="Photo of {{st.name}}" />
+        <div class="roll-badge">#{{st.roll_no}}</div>
+      </div>
+
+      <div class="card-info">
+        <div class="name-section">
+          <h3>{{st.name}}</h3>
+          {% if st.active == 1 %}
+          <span class="status-tag active">ACTIVE</span>
+          {% else %}
+          <span class="status-tag inactive">INACTIVE</span>
+          {% endif %}
+        </div>
+
+        <div class="details-list">
+          <div class="detail-item">
+            <i class="fas fa-users-viewfinder"></i>
+            <div>
+              <label>Parent's Name</label>
+              <p>{{st.parents_name}}</p>
+            </div>
+          </div>
+
+          <div class="detail-item">
+            <i class="fas fa-phone"></i>
+            <div>
+              <label>Phone No</label>
+              <p>{{st.phone_no}}</p>
+            </div>
+          </div>
+
+          <div class="detail-row">
+            <div class="detail-item">
+              <i class="fas fa-birthday-cake"></i>
+              <div>
+                <label>Age</label>
+                <p>{{st.age}} Yrs</p>
+              </div>
+            </div>
+            <div class="detail-item">
+              <i class="fas fa-venus-mars"></i>
+              <div>
+                <label>Gender</label>
+                <p>{{st.gender|capfirst}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock body %}

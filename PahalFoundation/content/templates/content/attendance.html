@@ -1,0 +1,93 @@
+{% extends 'content/dashboard.html' %}
+{% block body %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'content/css/attendance-styles.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+<div class="attendance-wrapper">
+    <div class="attendance-header">
+        <div class="header-text">
+            <h1 class="page-main-title"><i class="fas fa-clipboard-check"></i> Take Attendance</h1>
+            <p class="page-subtitle">Mark daily attendance for scholars and review session statistics.</p>
+        </div>
+        
+        <div class="live-summary">
+            <div class="summary-item">
+                <span class="label">Present</span>
+                <span id="total-present" class="value text-green">0</span>
+            </div>
+            <div class="summary-item">
+                <span class="label">Absent</span>
+                <span id="total-absent" class="value text-red">0</span>
+            </div>
+            <div class="summary-item percentage-box">
+                <span class="label">Attendance %</span>
+                <span id="attendance-percent" class="value">0%</span>
+            </div>
+        </div>
+    </div>
+
+    {% if messages %}
+    <div class="message-center">
+        {% for message in messages %}
+        <div class="alert-pill"><i class="fas fa-info-circle"></i> {{ message }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="table-card">
+        <form method="post" id="attendance-form">
+            {% csrf_token %}
+            
+            <div class="table-actions">
+                <div class="bulk-actions">
+                    <button type="button" class="bulk-btn present" onclick="markAll('present')">
+                        <i class="fas fa-check-double"></i> Mark All Present
+                    </button>
+                    <button type="button" class="bulk-btn absent" onclick="markAll('absent')">
+                        <i class="fas fa-times-circle"></i> Mark All Absent
+                    </button>
+                </div>
+                
+                <button type="submit" class="save-btn-premium">
+                    Save Session Attendance <i class="fas fa-save"></i>
+                </button>
+            </div>
+
+            <table class="premium-table" id="attendance-table">
+                <thead>
+                    <tr>
+                        <th>Roll No.</th>
+                        <th>Student Name</th>
+                        <th class="text-center">Attendance Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for st in students %}
+                    <tr>
+                        <td class="font-bold">#{{ st.roll_no }}</td>
+                        <td>
+                            <div class="student-name-box">
+                                <div class="mini-avatar">{{ st.name|slice:":1"|upper }}</div>
+                                {{ st.name }}
+                            </div>
+                        </td>
+                        <td class="text-center">
+                            <div class="status-wrapper">
+                                <select class="status-select" id="{{ st.roll_no }}" name="rollNo{{ st.roll_no }}" onchange="calculateAttendance()">
+                                    <option value="" selected disabled>Select Status</option>
+                                    <option value="present" class="opt-present">Present</option>
+                                    <option value="absent" class="opt-absent">Absent</option>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>
+
+<script src="{% static 'content/js/main.js' %}"></script>
+{% endblock body %}

@@ -1,0 +1,152 @@
+/* ========================================= */
+/* STUDENT REGISTRY PREMIUM GRID */
+/* ========================================= */
+
+.registry-container {
+    padding: 20px;
+    animation: fadeIn 0.6s ease-out;
+}
+
+.registry-header {
+    margin-bottom: 40px;
+}
+
+.registry-header h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 5px;
+}
+
+.registry-header h1 i {
+    color: #f47c20; /* Matching the orange accent */
+}
+
+.registry-header p {
+    color: #64748b;
+    font-size: 1rem;
+}
+
+/* Grid Layout */
+.students-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+/* Card Styling */
+.student-card-premium {
+    background: #ffffff;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.02);
+}
+
+.student-card-premium:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
+}
+
+/* Image & Badge */
+.card-image-wrapper {
+    width: 100%;
+    height: 200px;
+    position: relative;
+    background: #f1f5f9;
+}
+
+.card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.roll-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #085a66; /* Matching the teal from image */
+    color: white;
+    padding: 6px 15px;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 0.85rem;
+    box-shadow: 0 5px 15px rgba(8, 90, 102, 0.3);
+}
+
+/* Info Section */
+.card-info {
+    padding: 25px;
+}
+
+.name-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.name-section h3 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #1e293b;
+}
+
+/* Status Tags */
+.status-tag {
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 4px 12px;
+    border-radius: 50px;
+    letter-spacing: 0.5px;
+}
+
+.status-tag.active { background: #ecfdf5; color: #10b981; }
+.status-tag.inactive { background: #fff1f2; color: #e11d48; }
+
+/* Details List */
+.detail-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 18px;
+}
+
+.detail-item i {
+    color: #085a66; /* Teal icons */
+    font-size: 1rem;
+    margin-top: 4px;
+    width: 20px;
+    text-align: center;
+}
+
+.detail-item label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.detail-item p {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #334155;
+}
+
+.detail-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 15px;
+    margin-top: 5px;
+}
+
+/* Entrance Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}

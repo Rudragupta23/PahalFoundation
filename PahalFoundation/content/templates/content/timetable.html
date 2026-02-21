@@ -1,0 +1,34 @@
+{% extends 'content/dashboard.html' %}
+{% block body %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'content/css/timetable-styles.css' %}">
+
+<div class="timetable-wrapper">
+    <div class="timetable-header">
+        <div class="header-text">
+            <h2 class="page-main-title">
+                <i class="fas fa-calendar-alt"></i> Academic Schedule
+            </h2>
+            <p class="page-subtitle">Pahal Foundation official timetable for the current session.</p>
+        </div>
+        
+        <div class="header-actions">
+            <a href="https://pahalbucket-v2.s3.amazonaws.com/timetable.pdf" target="_blank" class="download-btn">
+                <i class="fas fa-expand"></i> Full Screen
+            </a>
+        </div>
+    </div>
+
+    <div class="timetable-card">
+        <div class="iframe-container">
+            <iframe 
+                src="https://pahalbucket-v2.s3.amazonaws.com/timetable.pdf#toolbar=0&navpanes=0&scrollbar=0" 
+                width="100%" 
+                height="650px">
+            </iframe>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

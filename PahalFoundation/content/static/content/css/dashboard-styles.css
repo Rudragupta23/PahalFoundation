@@ -1,0 +1,239 @@
+/* ========================================= */
+/* PREMIUM DASHBOARD SYSTEM - PAHAL CORE */
+/* ========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --primary-red: #f05462;
+    --dark-bg: #1a1a1a;
+    --light-grey: #f4f7f6;
+    --white: #ffffff;
+    --sidebar-width: 18%;
+}
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f0f4ff, #e6f0ff);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+li {
+    list-style: none;
+}
+
+/* Premium Buttons */
+.btn {
+    background: var(--primary-red);
+    color: white;
+    padding: 10px 18px;
+    border: 2px solid transparent;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    border-radius: 50px;
+    font-weight: 600;
+}
+
+.btn:hover {
+    color: var(--primary-red);
+    background: white;
+    border: 2px solid var(--primary-red);
+    transform: scale(1.05);
+}
+
+.dashboard {
+    display: flex;
+}
+
+.dashboard-right {
+    width: 82%;
+    padding-bottom: 50px;
+}
+
+/* Sidebar Styling */
+.side-menu {
+    width: var(--sidebar-width);
+    min-height: 100vh;
+    background: var(--primary-red);
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+    color: white;
+    position: sticky;
+    top: 0;
+    box-shadow: 10px 0 30px rgba(240, 84, 98, 0.2);
+}
+
+.side-menu .brand-name {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.menu-item {
+    font-size: 16px;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s ease;
+    border-left: 5px solid transparent;
+}
+
+.menu-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-left: 5px solid white;
+}
+
+.menu-item span i {
+    margin-right: 15px;
+}
+
+.submenu {
+    display: none;
+    background: rgba(0, 0, 0, 0.05);
+    padding: 10px 0;
+    animation: fadeIn 0.3s ease;
+}
+
+.submenu a {
+    display: block;
+    padding: 10px 60px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.submenu a:hover {
+    color: white;
+    padding-left: 70px;
+}
+
+/* Top Header Navigation */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 20px 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border-radius: 0 0 25px 25px;
+    margin-bottom: 40px;
+}
+
+.welcome-user h2 {
+    font-size: 1.5rem;
+    color: #444;
+}
+
+.welcome-user span {
+    color: var(--primary-red);
+    font-weight: 800;
+}
+
+.search {
+    display: flex;
+    gap: 10px;
+    width: 40%;
+}
+
+.search input {
+    padding: 12px 25px;
+    border-radius: 50px;
+    width: 100%;
+    border: 1px solid #eee;
+    background: #f8f9fa;
+    outline: none;
+    transition: 0.3s;
+}
+
+.search input:focus {
+    border-color: var(--primary-red);
+    background: white;
+    box-shadow: 0 0 15px rgba(240, 84, 98, 0.1);
+}
+
+/* Dashboard Container Content */
+.dashboard-container {
+    padding: 20px 40px;
+}
+
+/* Cards Modern Layout */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.03);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-align: center;
+    border: 1px solid #f0f0f0;
+}
+
+.card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
+    border-color: var(--primary-red);
+}
+
+/* Admission Form Premium Styling */
+.form-container {
+    background-color: white;
+    padding: 50px;
+    border-radius: 30px;
+    max-width: 800px;
+    margin: auto;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.05);
+}
+
+.form-container h2 {
+    margin-bottom: 30px;
+    font-weight: 800;
+    color: var(--dark-bg);
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 50px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 700;
+    box-shadow: 0 10px 20px rgba(76, 175, 80, 0.2);
+    transition: 0.3s;
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(76, 175, 80, 0.3);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
