@@ -27,9 +27,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 # ALLOWED_HOSTS = ['.onrender.com']
 
 
@@ -158,27 +158,6 @@ STORAGES = {
     },
 }
 from .ckeditorconfig import *
-#  new content
-# CKEDITOR_5_CONFIGS = {
-#     "default": {
-#         "extends": "default",
-#         "toolbar": {
-#             "items": [
-#                 "heading",
-#                 "|",
-#                 "bold",
-#                 "italic",
-#                 "link",
-#                 "bulletedList",
-#                 "numberedList",
-#                 "|",
-#                 "blockQuote",
-#                 "undo",
-#                 "redo",
-#             ]
-#         },
-#     }
-# }
-#  new content
+
 
 CKEDITOR_5_FILE_STORAGE = "django.core.files.storage.FileSystemStorage"
