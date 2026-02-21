@@ -2,7 +2,7 @@
 
 Welcome to the official repository for the Pahal Foundation's web application. This platform is a comprehensive tool designed to support the foundation's mission of empowering underprivileged students by providing educational resources, managing operations, and fostering a community of support.
 
-Website link - [www.pahalfoundation.com](https://pahalfoundation.onrender.com/)
+Website link - [www.pahalfoundation.com](https://pahalfoundationvitb.onrender.com/)
 
 ## 🌟 About
 
