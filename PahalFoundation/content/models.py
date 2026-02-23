@@ -71,6 +71,12 @@ class Student(models.Model):
     photo = models.ImageField(upload_to ='students/', null=True)
     grade = models.CharField(max_length=10, blank=True, default='')
     prev_school = models.CharField(max_length=30, blank=True, default='')
+        #  delete photos from aws
+    def delete(self, *args, **kwargs):
+        if self.photo:  # Check if there is an image
+            self.photo.delete(save=False)
+
+        super().delete(*args, **kwargs)  # Delete the model instance
 
     def __str__(self):
         return "%s. %s" % (self.roll_no, self.name)
@@ -95,6 +101,12 @@ class Volunteer(models.Model):
     photo = models.ImageField(upload_to ='volunteer/', null=True)
     interest = models.CharField(max_length=40, blank=True, default='')
     experience = models.CharField(max_length=40, blank=True, default='')
+        #  delete photos from aws
+    def delete(self, *args, **kwargs):
+        if self.photo:  # Check if there is an image
+            self.photo.delete(save=False)
+
+        super().delete(*args, **kwargs)  # Delete the model instance
 
     def __str__(self):
         return "%s. %s" % (self.name, self.designation)
