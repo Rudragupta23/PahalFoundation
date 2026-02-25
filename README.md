@@ -29,18 +29,6 @@ Pahal Foundation is a non-profit organization committed to empowering underprivi
     -   **Teacher Dashboard:** A tailored dashboard for teachers to manage their students, take attendance, and contribute to the blog.
 -   **Responsive Design:** Ensures a seamless experience across desktops, tablets, and mobile devices.
 
-## 🖼️ Screenshots
-
-| Homepage | Volunteer Page |
-| :---: |:---:|
-| ![Homepage of Pahal Foundation website](screenshots/Screenshot%20(33).png) | ![Volunteer page with images of volunteers](screenshots/Screenshot%20(35).png) |
-| **Donation Page** | **Blog Page** |
-| ![Donation page with payment options](screenshots/Screenshot%20(36).png) | ![Blog forum page with articles and updates](screenshots/Screenshot%20(37).png) |
-| **Student Info Dashboard** | **Volunteer Enrollment Dashboard** |
-| ![Student information dashboard](screenshots/Screenshot%20(38).png)| ![Volunteer registration form](screenshots/Screenshot%20(40).png)|
-| **Blog Creation Interface** | **Attendance Tracking** |
-| ![Blog creation interface with text editor](screenshots/Screenshot%20(39).png) | ![Attendance tracking interface](screenshots/Screenshot%20(41).png) |
-
 
 ## 🛠️ Tech Stack
 
