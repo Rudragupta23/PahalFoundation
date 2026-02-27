@@ -15,12 +15,10 @@ Pahal Foundation is a non-profit organization committed to empowering underprivi
 -   **Donation Portal:** Integrated with Razorpay for seamless and secure online donations.
 -   **Content Management:**
     -   **Blog/Forum:** A platform for teachers and admins to create, edit, and publish articles. Includes a rich text editor and a commenting system for community engagement.
-    -   **Video & Photo Gallery:** A space to upload and manage multimedia content to share our story and activities.
 -   **Student Management System:**
     -   **Admissions:** An easy-to-use form for enrolling new students.
     -   **Student Database:** A central place to view and manage detailed student information.
     -   **Attendance Tracking:** Functionality for teachers to take and record daily attendance.
-    -   **Progress Reports:** A system to monitor and document the academic and personal growth of each student.
 -   **Volunteer Management:**
     -   **Enrollment:** A dedicated form for new volunteers to register and join our cause.
     -   **Volunteer Database:** A directory of all volunteers and their information.
@@ -37,7 +35,7 @@ Pahal Foundation is a non-profit organization committed to empowering underprivi
 * **Database:** MySQL
 * **File Storage:** AWS S3 for media files.
 * **Payment Gateway:** RazorPay.
-* **Deployment:** Git, GitHub, Docker, Render.
+* **Deployment:** Git, GitHub, Render.
 
 ## 📂 Project Structure
 The project is organized into two main Django apps: pahal for the public-facing site and user authentication, and content for the internal dashboard and content management.
