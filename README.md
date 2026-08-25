@@ -33,13 +33,13 @@ Pahal Foundation is a non-profit organization committed to empowering underprivi
 
 | Homepage | Volunteer Page |
 | :---: |:---:|
-| ![Homepage of Pahal Foundation website](screenshots/Screenshot%20(33).png) | ![Volunteer page with images of volunteers](screenshots/Screenshot%20(35).png) |
+| ![Homepage of Pahal Foundation website](screenshots/home.png) | ![Volunteer page with images of volunteers](screenshots/vounteer.png) |
 | **Donation Page** | **Blog Page** |
-| ![Donation page with payment options](screenshots/Screenshot%20(36).png) | ![Blog forum page with articles and updates](screenshots/Screenshot%20(37).png) |
+| ![Donation page with payment options](screenshots/donate.png) | ![Blog forum page with articles and updates](screenshots/forum.png) |
 | **Student Info Dashboard** | **Volunteer Enrollment Dashboard** |
-| ![Student information dashboard](screenshots/Screenshot%20(38).png)| ![Volunteer registration form](screenshots/Screenshot%20(40).png)|
+| ![Student information dashboard](screenshots/dashboard.png)| ![Volunteer registration form](screenshots/student.png)|
 | **Blog Creation Interface** | **Attendance Tracking** |
-| ![Blog creation interface with text editor](screenshots/Screenshot%20(39).png) | ![Attendance tracking interface](screenshots/Screenshot%20(41).png) |
+| ![Blog creation interface with text editor](screenshots/blog.png) | ![Attendance tracking interface](screenshots/attendance.png) |
 
 
 ## 🛠️ Tech Stack
