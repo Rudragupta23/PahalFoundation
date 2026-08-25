@@ -2,7 +2,7 @@
 
 Welcome to the official repository for the Pahal Foundation's web application. This platform is a comprehensive tool designed to support the foundation's mission of empowering underprivileged students by providing educational resources, managing operations, and fostering a community of support.
 
-Website link - [www.pahalfoundation.com](https://pahalfoundation.onrender.com/)
+Website link - [www.pahalfoundation.com](https://pahalfoundationvitb.onrender.com/)
 
 ## 🌟 About
 
@@ -15,12 +15,10 @@ Pahal Foundation is a non-profit organization committed to empowering underprivi
 -   **Donation Portal:** Integrated with Razorpay for seamless and secure online donations.
 -   **Content Management:**
     -   **Blog/Forum:** A platform for teachers and admins to create, edit, and publish articles. Includes a rich text editor and a commenting system for community engagement.
-    -   **Video & Photo Gallery:** A space to upload and manage multimedia content to share our story and activities.
 -   **Student Management System:**
     -   **Admissions:** An easy-to-use form for enrolling new students.
     -   **Student Database:** A central place to view and manage detailed student information.
     -   **Attendance Tracking:** Functionality for teachers to take and record daily attendance.
-    -   **Progress Reports:** A system to monitor and document the academic and personal growth of each student.
 -   **Volunteer Management:**
     -   **Enrollment:** A dedicated form for new volunteers to register and join our cause.
     -   **Volunteer Database:** A directory of all volunteers and their information.
@@ -33,14 +31,13 @@ Pahal Foundation is a non-profit organization committed to empowering underprivi
 
 | Homepage | Volunteer Page |
 | :---: |:---:|
-| ![Homepage of Pahal Foundation website](screenshots/Screenshot%20(33).png) | ![Volunteer page with images of volunteers](screenshots/Screenshot%20(35).png) |
+| ![Homepage of Pahal Foundation website](screenshots/home.png) | ![Volunteer page with images of volunteers](screenshots/vounteer.png) |
 | **Donation Page** | **Blog Page** |
-| ![Donation page with payment options](screenshots/Screenshot%20(36).png) | ![Blog forum page with articles and updates](screenshots/Screenshot%20(37).png) |
-| **Student Info Dashboard** | **Volunteer Enrollment Dashboard** |
-| ![Student information dashboard](screenshots/Screenshot%20(38).png)| ![Volunteer registration form](screenshots/Screenshot%20(40).png)|
+| ![Donation page with payment options](screenshots/donate.png) | ![Blog forum page with articles and updates](screenshots/forum.png) |
+| **Dashboard** | **Student Info Dashboard** |
+| ![dashboard](screenshots/dashboard.png)| ![Student Info Dashboard](screenshots/student.png)|
 | **Blog Creation Interface** | **Attendance Tracking** |
-| ![Blog creation interface with text editor](screenshots/Screenshot%20(39).png) | ![Attendance tracking interface](screenshots/Screenshot%20(41).png) |
-
+| ![Blog creation interface with text editor](screenshots/blog.png) | ![Attendance tracking interface](screenshots/attendance.png) |
 
 ## 🛠️ Tech Stack
 
@@ -49,7 +46,7 @@ Pahal Foundation is a non-profit organization committed to empowering underprivi
 * **Database:** MySQL
 * **File Storage:** AWS S3 for media files.
 * **Payment Gateway:** RazorPay.
-* **Deployment:** Git, GitHub, Docker, Render.
+* **Deployment:** Git, GitHub, Render.
 
 ## 📂 Project Structure
 The project is organized into two main Django apps: pahal for the public-facing site and user authentication, and content for the internal dashboard and content management.
