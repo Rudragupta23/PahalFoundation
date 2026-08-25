@@ -15,7 +15,7 @@
     {% for st in students %}
     <div class="student-card-premium">
       <div class="card-image-wrapper">
-        <img src="{{st.photo.url}}" alt="Photo of {{st.name}}" />
+        <img src="{{MEDIA_URL}}{{st.photo.url}}" alt="Photo of {{st.name}}" />
         <div class="roll-badge">#{{st.roll_no}}</div>
       </div>
 

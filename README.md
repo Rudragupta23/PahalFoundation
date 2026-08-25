@@ -34,10 +34,11 @@ Pahal Foundation is a non-profit organization committed to empowering underprivi
 | ![Homepage of Pahal Foundation website](screenshots/home.png) | ![Volunteer page with images of volunteers](screenshots/vounteer.png) |
 | **Donation Page** | **Blog Page** |
 | ![Donation page with payment options](screenshots/donate.png) | ![Blog forum page with articles and updates](screenshots/forum.png) |
-| **Dashboard** | **Student Info Dashboard** |
-| ![dashboard](screenshots/dashboard.png)| ![Student Info Dashboard](screenshots/student.png)|
+| **Student Info Dashboard** | **Volunteer Enrollment Dashboard** |
+| ![Student information dashboard](screenshots/dashboard.png)| ![Volunteer registration form](screenshots/student.png)|
 | **Blog Creation Interface** | **Attendance Tracking** |
 | ![Blog creation interface with text editor](screenshots/blog.png) | ![Attendance tracking interface](screenshots/attendance.png) |
+
 
 ## 🛠️ Tech Stack
 
