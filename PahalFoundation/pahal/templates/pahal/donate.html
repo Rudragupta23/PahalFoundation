@@ -13,7 +13,8 @@
 <body>
     <nav class="nav-bar h-nav-resp">
         <div class="logo pizza r-pizza-resp">
-            <img src="{% static 'pahal/img/logo.jpeg' %}" alt="Pahal Foundation Logo">
+            {% comment %} <img src="{% static 'pahal/img/logo.jpeg' %}" alt="Pahal Foundation Logo"> {% endcomment %}
+            <img src="https://pahalbucket-v4.s3.eu-west-2.amazonaws.com/img/logo.jpeg" alt="Pahal Foundation Logo">
             <a class="name-res" href="/">Pahal Foundation VITB</a>
         </div>
         <ul class="nav-links nav-links-res">
@@ -41,7 +42,7 @@
 <section class="hero-banner">
 
     <!-- Background Image -->
-    <img src="{% static 'pahal/img/d1.webp' %}" 
+    <img src="https://pahalbucket-v4.s3.eu-west-2.amazonaws.com/img/d1.webp" 
          alt="Donation Background" 
          class="hero-bg-image">
 

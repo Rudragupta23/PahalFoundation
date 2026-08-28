@@ -7,7 +7,8 @@
         <!-- ================= HERO SECTION ================= -->
 <section class="contact-hero">
     <div class="hero-overlay"></div>
-    <img src="{% static 'pahal/img/c1.jpg' %}" class="hero-bg">
+    {% comment %} <img src="{% static 'pahal/img/c1.jpg' %}" class="hero-bg"> {% endcomment %}
+    <img src="https://pahalbucket-v4.s3.eu-west-2.amazonaws.com/img/c1.jpg" class="hero-bg">
 
     <div class="hero-content">
         <h1>We’d Love To Hear From You</h1>
@@ -158,7 +159,7 @@
                 <!-- RUDRA -->
                 <div class="team-row">
                     <div class="team-image" onclick="openModal('modal-rudra')">
-                        <img src="{% static 'pahal/img/dev1.jpeg' %}" alt="Rudra Gupta">
+                        <img src="https://pahalbucket-v4.s3.eu-west-2.amazonaws.com/img/dev1.jpeg" alt="Rudra Gupta">
                         <div class="image-overlay">Click for more info</div>
                     </div>
 
@@ -188,7 +189,7 @@
 <div id="modal-rudra" class="custom-modal">
     <div class="modal-box">
         <span class="close-btn" onclick="closeModal('modal-rudra')">&times;</span>
-        <img src="{% static 'pahal/img/dev1.jpeg' %}">
+        <img src="https://pahalbucket-v4.s3.eu-west-2.amazonaws.com/img/dev1.jpeg">
         <h2>Rudra Gupta</h2>
         <h4>B.Tech CSE – 3rd Year</h4>
         <p>Reg: 23BCE10068</p>

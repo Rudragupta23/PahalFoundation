@@ -5,7 +5,8 @@
 <header class="hero">
     <div class="video-wrapper">
 <video muted loop playsinline id="heroVideo" class="hero-video">
-            <source src="{% static 'pahal/video/main_video.mp4' %}" type="video/mp4">
+            {% comment %} <source src="{% static 'pahal/video/main_video.mp4' %}" type="video/mp4"> {% endcomment %}
+            <source src="https://pahalbucket-v4.s3.eu-west-2.amazonaws.com/video/main_video.mp4" type="video/mp4">
         </video>
         
         <div class="text-overlay left-align">
@@ -37,7 +38,8 @@
                 </div>
                 
                 <div class="mission-image">
-                    <img src="{% static 'pahal/img/j4.webp' %}" alt="Pahal Mission Activity">
+                    {% comment %} <img src="{% static 'pahal/img/j4.webp' %}" alt="Pahal Mission Activity"> {% endcomment %}
+                    <img src="https://pahalbucket-v4.s3.eu-west-2.amazonaws.com/img/j4.webp" alt="Pahal Mission Activity">
                 </div>
             </div>
             
@@ -121,7 +123,7 @@
                 <div class="team-member">
                     <label for="modal-sumit" class="member-click-area">
 <div class="member-image">
-    <img src="{% static 'pahal/img/sumit_sir.jpeg' %}" alt="Sumit Mittal">
+    <img src="https://pahalbucket-v4.s3.eu-west-2.amazonaws.com/img/sumit_sir.jpeg" alt="Sumit Mittal">
     <div class="click-overlay">
         Click to View Profile
     </div>
@@ -140,7 +142,7 @@
                 <div class="team-member">
                     <label for="modal-nirmala" class="member-click-area">
                         <div class="member-image">
-                            <img src="{% static 'pahal/img/nirmala_mam.jpeg' %}" alt="E. Nirmala">
+                            <img src="https://pahalbucket-v4.s3.eu-west-2.amazonaws.com/img/nirmala_mam.jpeg" alt="E. Nirmala">
                             <div class="click-overlay">
                                 Click to View Profile
                             </div>
@@ -169,7 +171,7 @@
         <label for="modal-sumit" class="close-modal">&times;</label>
         <div class="modal-body">
             <div class="modal-image">
-                <img src="{% static 'pahal/img/sumit_sir.jpeg' %}">
+                <img src="https://pahalbucket-v4.s3.eu-west-2.amazonaws.com/img/sumit_sir.jpeg">
             </div>
             <div class="modal-text">
                 <h2>Dr. Sumit Mittal</h2>
@@ -187,7 +189,7 @@
         <label for="modal-nirmala" class="close-modal">&times;</label>
         <div class="modal-body">
             <div class="modal-image">
-                <img src="{% static 'pahal/img/nirmala_mam.jpeg' %}">
+                <img src="https://pahalbucket-v4.s3.eu-west-2.amazonaws.com/img/nirmala_mam.jpeg">
             </div>
             <div class="modal-text">
                 <h2>Dr. E. Nirmala</h2>
@@ -255,7 +257,8 @@
         <div class="cta-card scroll-reveal">
             
             <div class="cta-image-top">
-                <img src="{% static 'pahal/img/img4.webp' %}" alt="PAHAL Foundation Activity">
+                {% comment %} <img src="{% static 'pahal/img/img4.webp' %}" alt="PAHAL Foundation Activity"> {% endcomment %}
+                <img src="https://pahalbucket-v4.s3.eu-west-2.amazonaws.com/img/img4.webp" alt="PAHAL Foundation Activity">
             </div>
             
             <div class="cta-grid">
